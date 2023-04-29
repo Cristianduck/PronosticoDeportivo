@@ -1,0 +1,46 @@
+@startuml
+class Pronostico #red-orange{
+-ArrayList<Apuesta>pronostico;
+}
+class Apuesta #green-orange {
+-int idApuesta;
+-int cdPartido;
+-String Equipo1;
+-int resultado;
+-String Equipo2;
+-int fecha;
+-int cdApostador;
+}
+class Apostador #yellow-orange{
+-int idApostador;
+-String nombre;
+-String Apellido;
+-int dni;
+}
+class Partido #red-white{
+-int golesEquipo1;
+- String Equipo1;
+-int golesEquipo2
+-String Equipo2
+-int fecha;
+}
+class Resultado #Fuchsia-white {
+-ArrayList<Partido> resultados;
+}
+class ListadoApostadores #violet-white{
+-HashMap<Integer,Apostador> apostadores;
+}
+class main #blue-white{
++public static void main(String[] args) throws IOException, SQLException
+}
+
+Pronostico--Partido
+Partido-->Apuesta
+Apuesta-->Apostador
+Apostador-->Partido
+Partido-->Resultado
+Resultado-->ListadoApostadores
+Resultado-->main
+
+
+@enduml
